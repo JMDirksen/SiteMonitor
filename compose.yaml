@@ -1,0 +1,21 @@
+services:
+  sitemonitor1:
+    image: jmdirksen/sitemonitor
+    environment:
+      URL: https://example.com
+      CONTAINS: "Example Domain"
+      INTERVAL: 300
+      TIMEOUT: 3
+      NTFY_TOPIC: SiteMonitor
+    restart: unless-stopped
+
+  sitemonitor2:
+    image: jmdirksen/sitemonitor
+    environment:
+      URL: https://www.google.com
+      CONTAINS: "I'm Feeling Lucky"
+      SSL_CERT_EXPIRY_DAYS: 7
+      INTERVAL: 300
+      TIMEOUT: 3
+      NTFY_TOPIC: SiteMonitor
+    restart: unless-stopped
