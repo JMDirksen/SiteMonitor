@@ -20,10 +20,10 @@ def main():
         print(f"> {URL} ... ", end="", flush=True)
         error = checkSite(URL, CONTAINS)
         if error:
-            print("Error:", error)
+            print("Error:", error, flush=True)
             send_notification("Site error", f"{URL} - {error}", True)
         else:
-            print("OK")
+            print("OK", flush=True)
         sleep(INTERVAL)
 
 
@@ -72,7 +72,7 @@ def send_notification(title: str, message: str, warning: bool = False):
         )
         print("Notification sent", flush=True)
     except Exception as e:
-        print(e, end=" ")
+        print(e, end=" ", flush=True)
 
 
 if __name__ == "__main__":
