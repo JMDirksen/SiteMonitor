@@ -12,7 +12,7 @@ services:
   sitemonitor2:
     image: jmdirksen/sitemonitor
     environment:
-      URL: https://www.google.com
+      URL: https://www.google.com/?hl=en
       CONTAINS: "I'm Feeling Lucky"
       SSL_CERT_EXPIRY_DAYS: 7
       INTERVAL: 300
