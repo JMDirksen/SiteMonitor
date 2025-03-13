@@ -21,6 +21,7 @@ NTFY_TOPIC | PortMonitor | The [ntfy topic](https://docs.ntfy.sh/?h=topic#step-1
 pip install cryptography
 ```
 
+
 # Docker build
 
 ```
@@ -36,6 +37,7 @@ docker run --name sitemonitor --rm -d -e URL=https://example.com -e CONTAINS="Ex
 docker logs -ft sitemonitor
 docker stop sitemonitor
 ```
+
 
 # Docker compose
 
