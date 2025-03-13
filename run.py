@@ -16,14 +16,20 @@ NTFY_TOPIC = getenv('NTFY_TOPIC') or "SiteMonitor"
 
 
 def main():
+    lastStateOk = True
     while True:
         print(f"> {URL} ... ", end="", flush=True)
         error = checkSite(URL, CONTAINS)
         if error:
             print("Error:", error, flush=True)
-            send_notification("Site error", f"{URL} - {error}", True)
+            if lastStateOk:
+                lastStateOk = False
+                send_notification("Site error", f"{URL} - {error}", True)
         else:
             print("OK", flush=True)
+            if not lastStateOk:
+                lastStateOk = True
+                send_notification("Site ok", f"{URL} OK")
         sleep(INTERVAL)
 
 
