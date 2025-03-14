@@ -37,7 +37,9 @@ def checkSite(url: str, contains=""):
     try:
         response = requests.get(url, timeout=TIMEOUT)
     except requests.exceptions.Timeout:
-        return "Request timeout"
+        return "Request timed out"
+    except requests.exceptions.ConnectionError:
+        return "Unable to connect"
     except:
         return exc_info()[1]
     if not contains in response.text:
